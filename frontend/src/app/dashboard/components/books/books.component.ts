@@ -78,6 +78,9 @@ export class BooksComponent {
     ).subscribe((response) => {
       if (response) {
         this.form.reset();
+        this.form.setValue({
+   bookAuthor: ''
+  });
         this.books = response.map((item: BookInterface) => Object.assign({}, item));
       }
     });
