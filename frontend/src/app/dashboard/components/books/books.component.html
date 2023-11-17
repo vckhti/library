@@ -5,8 +5,8 @@
 
         <form [formGroup]="form" (ngSubmit)="addBook()">
 
-        <label *ngIf="authors && authors.length > 0" for="authorsList">Выберите автора *:&nbsp; </label>
-        <select id="authorsList" formControlName="bookAuthor" *ngIf="authors && authors.length > 0">
+        
+        <select formControlName="bookAuthor" *ngIf="authors && authors.length > 0">
           <option disabled selected value="">Выберите автора</option>
           <option *ngFor="let item of authors" value="{{item}}">{{item}}</option>
         </select>
