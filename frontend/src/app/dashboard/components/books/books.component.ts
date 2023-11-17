@@ -13,7 +13,7 @@ import {SortConfigInterface} from "../../interfaces/sort-config.interface";
 })
 export class BooksComponent {
   form = new FormGroup({
-    bookAuthor: new FormControl(null, [Validators.required]),
+    bookAuthor: new FormControl('', [Validators.required]),
     bookName: new FormControl(null, [Validators.required]),
     bookPublisher: new FormControl(null, [Validators.required]),
     bookYear: new FormControl(null, [Validators.required]),
