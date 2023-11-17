@@ -17,7 +17,7 @@ export class BooksComponent {
     bookName: new FormControl(null, [Validators.required]),
     bookPublisher: new FormControl(null, [Validators.required]),
     bookYear: new FormControl(null, [Validators.required]),
-  }, { updateOn: 'submit' });
+  });
 
   onDestroy$: Subject<boolean> = new Subject();
 
