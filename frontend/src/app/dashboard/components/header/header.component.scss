@@ -1,0 +1,18 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+
+  span{
+    margin-left: 40px;
+    cursor: pointer;
+  }
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.menu-wrapper {
+  height: 8vh;
+}

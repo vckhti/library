@@ -1,0 +1,63 @@
+<div class="content-wrapper">
+  <div class="container">
+    <div class="container-input">
+
+      <div class="row">
+      <input id="lastName"
+             placeholder="Введите фамилию *"
+             [(ngModel)]="lastName"
+             type="text"
+             required #lastname="ngModel"
+             [class.field-error]="(lastName !== undefined || showFieldErrorBorders) && lastname.invalid">
+
+      <input id="firstName" placeholder="Введите имя *"
+             [(ngModel)]="firstName" type="text" required #firstname="ngModel"
+             [class.field-error]="(firstName !== undefined || showFieldErrorBorders) && firstname.invalid">
+      <input id="middleName" placeholder="Введите отчество *"
+             [(ngModel)]="middleName" type="text" required #middlename="ngModel"
+             [class.field-error]="(middleName !== undefined || showFieldErrorBorders) && middlename.invalid">
+        <label for="birthday">Введите дату рождения *:&nbsp; </label>
+      <input id="birthday" [(ngModel)]="birthday" type="date"
+             required #birthDay="ngModel" [class.field-error]="(birthday !== undefined || showFieldErrorBorders) && birthDay.invalid">
+
+      <button class ="button" (click)="addAuthor()">Добавить автора</button>
+      </div>
+
+
+
+    </div>
+    <div class="container-table">
+
+      <table class="table">
+        <col style="width: 9%;"/>
+        <col style="width: 29%;"/>
+        <col style="width: 26%;"/>
+        <col style="width: 26%;"/>
+        <col style="width: 10%;"/>
+        <thead>
+        <tr>
+          <th colspan="5">Авторы</th>
+        </tr>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Фамилия</th>
+          <th scope="col">Имя</th>
+          <th scope="col">Отчество</th>
+          <th scope="col">Дата рождения</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of authors; let i = index">
+          <td>{{item.id}}</td>
+          <td>{{item.lastName}}</td>
+          <td>{{item.firstName}}</td>
+          <td>{{item.middleName}}</td>
+          <td>{{item.birthday}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>

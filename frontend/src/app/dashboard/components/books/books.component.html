@@ -1,0 +1,101 @@
+<div class="content-wrapper">
+  <div class="container">
+    <div class="container-input">
+      <div class="row">
+
+        <form [formGroup]="form" (ngSubmit)="addBook()">
+
+        <label *ngIf="authors && authors.length > 0" for="authorsList">Выберите автора *:&nbsp; </label>
+        <select id="authorsList" formControlName="bookAuthor" *ngIf="authors && authors.length > 0">
+          <option disabled selected value="">Выберите автора</option>
+          <option *ngFor="let item of authors" value="{{item}}">{{item}}</option>
+        </select>
+        <input formControlName="bookName" placeholder="Введите название книги *" type="text">
+        <input formControlName="bookPublisher" placeholder="Введите издателя *">
+        <input formControlName="bookYear" placeholder="Введите год *">
+
+        <button type="submit" class ="button">Добавить книгу</button>
+
+      </form>
+
+      </div>
+
+    </div>
+    <div class="container-table">
+
+      <table class="table">
+        <col style="width: 9%;"/>
+        <col style="width: 29%;"/>
+        <col style="width: 26%;"/>
+        <col style="width: 26%;"/>
+        <col style="width: 10%;"/>
+        <thead>
+        <tr>
+          <th colspan="5">Книги</th>
+        </tr>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Автор</th>
+          <th scope="col">Название</th>
+          <th scope="col">Издатель</th>
+          <th scope="col">Год</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td>
+            <button class="sort-button"
+                   (click)="onSortContainersClick('id')">
+            Сортировать по полю "id"
+            <span *ngIf="sortConfig.asc === true && sortConfig.column === 'id'">\</span>
+            <span *ngIf="sortConfig.asc === false || sortConfig.column !== 'id'">/</span>
+          </button>
+          </td>
+          <td>
+            <button class="sort-button"
+                    (click)="onSortContainersClick('bookAuthor')">
+              Сортировать по полю "автор"
+              <span *ngIf="sortConfig.asc === true && sortConfig.column === 'bookAuthor'">\</span>
+              <span *ngIf="sortConfig.asc === false || sortConfig.column !== 'bookAuthor'">/</span>
+            </button>
+          </td>
+          <td>
+            <button class="sort-button"
+                    (click)="onSortContainersClick('bookName')">
+              Сортировать по полю "название"
+              <span *ngIf="sortConfig.asc === true && sortConfig.column === 'bookName'">\</span>
+              <span *ngIf="sortConfig.asc === false || sortConfig.column !== 'bookName'">/</span>
+            </button>
+          </td>
+          <td>
+            <button class="sort-button"
+                    (click)="onSortContainersClick('bookPublisher')">
+              Сортировать по полю "издатель"
+              <span *ngIf="sortConfig.asc === true && sortConfig.column === 'bookPublisher'">\</span>
+              <span *ngIf="sortConfig.asc === false || sortConfig.column !== 'bookPublisher'">/</span>
+            </button>
+          </td>
+          <td>
+            <button class="sort-button"
+                    (click)="onSortContainersClick('bookYear')">
+              Сортировать по полю "год"
+              <span *ngIf="sortConfig.asc === true && sortConfig.column === 'bookYear'">\</span>
+              <span *ngIf="sortConfig.asc === false || sortConfig.column !== 'bookYear'">/</span>
+            </button>
+          </td>
+        </tr>
+        <tr *ngFor="let item of books; let i = index">
+          <td>{{item.id}}</td>
+          <td>{{item.bookAuthor}}</td>
+          <td>{{item.bookName}}</td>
+          <td>{{item.bookPublisher}}</td>
+          <td>{{item.bookYear}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>
